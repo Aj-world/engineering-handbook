@@ -35,7 +35,8 @@ Inspired by the documentation design philosophy used by companies like Stripe an
 
 **GitHub Pages** — https://aj-world.github.io/engineering-handbook/
 
-**Netlify** — https://engineering-handbook-v01.netlify.app/
+**Netlify** —  https://engineering-handbook-v01.netlify.app/
+
 ---
 
 ## Quick Start
