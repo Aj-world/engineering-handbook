@@ -222,8 +222,7 @@ Site URL: https://aj-world.github.io/engineering-handbook/
 
 ### Netlify
 
-Connect the repository or drag the folder to https://app.netlify.com/drop
-
+Connect the repository or drag the folder to https://engineering-handbook-v01.netlify.app/
 Netlify will automatically deploy the site.
 
 ---
