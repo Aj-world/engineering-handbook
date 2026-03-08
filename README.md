@@ -1,8 +1,53 @@
 # Engineering Handbook
 
-> A structured, open-source knowledge base for mastering backend engineering — from fundamental data structures through distributed systems design.
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-blue)
+![Deployment](https://img.shields.io/badge/deployment-static-brightgreen)
 
-Built for interview preparation and deep structured learning. Inspired by the documentation style of Stripe Docs and Vercel Docs.
+> A structured **open-source engineering knowledge base** for mastering backend engineering — from **fundamental data structures** to **distributed systems design**.
+
+Built for **interview preparation**, **deep technical revision**, and **structured learning**.
+
+The goal of this project is to transform fragmented learning resources into a structured, continuously evolving engineering handbook.
+
+Inspired by the documentation design philosophy used by companies like Stripe and Vercel.
+
+---
+
+## Table of Contents
+
+- [Live Website](#live-website)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Learning Roadmap](#learning-roadmap)
+- [Documentation Structure](#documentation-structure)
+- [Design System](#design-system)
+- [Features](#features)
+- [Adding a New Topic](#adding-a-new-topic)
+- [Local Development](#local-development)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Live Website
+
+**GitHub Pages** — https://aj-world.github.io/engineering-handbook/
+
+**Netlify** — https://engineering-handbook.netlify.app
+
+---
+
+## Quick Start
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Aj-world/engineering-handbook.git
+```
+
+Open `index.html` in your browser. No build process required.
 
 ---
 
@@ -11,9 +56,12 @@ Built for interview preparation and deep structured learning. Inspired by the do
 ```
 engineering-handbook/
 │
-├── index.html                  ← Homepage / roadmap overview
+├── index.html
+│   └── Homepage / learning roadmap
 │
-├── pages/                      ← Individual topic pages
+├── pages/
+│   └── Topic documentation pages
+│
 │   ├── arrays.html
 │   ├── hashmap.html
 │   ├── linkedlist.html
@@ -21,21 +69,26 @@ engineering-handbook/
 │   ├── queue.html
 │   ├── trees.html
 │   ├── graphs.html
+│
 │   ├── operating-systems.html
 │   ├── networking.html
 │   ├── databases.html
+│
 │   ├── rest-api.html
 │   ├── authentication.html
 │   ├── authorization.html
 │   ├── api-security.html
+│
 │   ├── caching.html
 │   ├── message-queues.html
 │   ├── event-driven.html
 │   ├── file-storage.html
+│
 │   ├── scalability.html
 │   ├── load-balancing.html
 │   ├── sharding.html
 │   ├── distributed-systems.html
+│
 │   ├── docker.html
 │   ├── cicd.html
 │   ├── cloud-basics.html
@@ -43,104 +96,168 @@ engineering-handbook/
 │
 ├── assets/
 │   ├── css/
-│   │   └── style.css           ← All shared styles (tokens, layout, components)
+│   │   └── style.css
 │   │
 │   └── js/
-│       └── search.js           ← Live search + copy-to-clipboard + sidebar active state
+│       └── search.js
 │
 └── README.md
 ```
 
 ---
 
-## Phases
+## Learning Roadmap
 
-| Phase | Topic Area | Topics |
-|-------|-----------|--------|
-| 01 | Programming Fundamentals | Arrays, HashMap, Linked List, Stack, Queue, Trees, Graphs |
-| 02 | Core Computer Science | Operating Systems, Networking, Databases |
-| 03 | Backend Engineering | REST API Design, Authentication, Authorization, API Security |
-| 04 | Advanced Backend | Caching, Message Queues, Event Driven Systems, File Storage |
-| 05 | System Design | Scalability, Load Balancing, Sharding, Distributed Systems |
-| 06 | Infrastructure | Docker, CI/CD, Cloud Basics, Monitoring |
+| Phase  | Area                     | Topics                                                       |
+| ------ | ------------------------ | ------------------------------------------------------------ |
+| **01** | Programming Fundamentals | Arrays, HashMap, Linked List, Stack, Queue, Trees, Graphs    |
+| **02** | Core Computer Science    | Operating Systems, Networking, Databases                     |
+| **03** | Backend Engineering      | REST API Design, Authentication, Authorization, API Security |
+| **04** | Advanced Backend         | Caching, Message Queues, Event Driven Systems, File Storage  |
+| **05** | System Design            | Scalability, Load Balancing, Sharding, Distributed Systems   |
+| **06** | Infrastructure           | Docker, CI/CD, Cloud Basics, Monitoring                      |
+
+---
+
+## Documentation Structure
+
+Each topic follows a **consistent learning format**:
+
+```
+1. Theory
+2. Mental Model
+3. Properties
+4. Complexity
+5. Real System Usage
+6. Code Example
+```
+
+This structure helps with **fast revision before interviews**.
 
 ---
 
 ## Design System
 
 ### Fonts
-- **Headings:** Fraunces (optical-size serif)
-- **Code / labels:** JetBrains Mono
-- **Body:** DM Sans
 
-### Colors
-```css
---blue:   #4d91ff   /* Phase 01 */
---purple: #9b7dff   /* Phase 02 */
---teal:   #2dd9b0   /* Phase 03 */
---amber:  #f5a623   /* Phase 04 */
---sky:    #38c8f5   /* Phase 05 */
---rose:   #ff6b81   /* Phase 06 */
-```
+| Usage    | Font           |
+| -------- | -------------- |
+| Headings | Fraunces       |
+| Code     | JetBrains Mono |
+| Body     | DM Sans        |
 
-### Layout
-Three-column documentation layout:
-- **Left sidebar** (252px) — sticky nav with all topics
-- **Main content** (flex, max 900px) — article prose
-- **Right rail** (200px) — on-page TOC (hidden below 1200px)
+### Phase Color System
 
----
+| Phase | Color  |
+| ----- | ------ |
+| 01    | Blue   |
+| 02    | Purple |
+| 03    | Teal   |
+| 04    | Amber  |
+| 05    | Sky    |
+| 06    | Rose   |
 
-## Adding a New Topic Page
-
-1. Create `pages/your-topic.html`
-2. Use the same HTML shell as `pages/arrays.html` (copy the boilerplate)
-3. Update the `<title>` and doc header content
-4. Set `.sidebar-item.active` on the correct sidebar link
-5. Add the topic to the `TOPICS` array in `assets/js/search.js`
-6. Link it from `index.html` in the correct phase section
+Used throughout the UI to visually distinguish roadmap stages.
 
 ---
 
 ## Features
 
-- **Live search** — `⌘K` / `Ctrl+K` opens search, filters all 30 topics instantly
-- **Keyboard navigation** — Arrow keys navigate results, `Escape` closes
-- **Active sidebar** — current page auto-highlighted via JS pathname detection
-- **Copy code** — one-click copy button on every code block
-- **Responsive** — sidebar collapses on mobile, TOC rail hides below 1200px
-- **No build step** — pure HTML + CSS + vanilla JS, deploy directly on Netlify/GitHub Pages
+- Live search (`Ctrl + K` / `⌘ + K`)
+- Keyboard navigation
+- Active sidebar highlighting
+- Copy-to-clipboard for code blocks
+- Responsive layout
+- Sticky documentation sidebar
+- No build tools required
+- Pure **HTML + CSS + Vanilla JS**
+
+---
+
+## Adding a New Topic
+
+1. Create a new page:
+```
+pages/your-topic.html
+```
+
+2. Copy the structure from:
+```
+pages/arrays.html
+```
+
+3. Update the `title`, `header`, and `content sections`.
+
+4. Register the topic in:
+```
+assets/js/search.js
+```
+
+5. Link it from `index.html`.
+
+---
+
+## Local Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Aj-world/engineering-handbook.git
+```
+
+Open `index.html` in any browser. No build process required.
 
 ---
 
 ## Deployment
 
 ### GitHub Pages
-```bash
-git init
-git add .
-git commit -m "initial commit"
-git remote add origin https://github.com/your-username/engineering-handbook.git
-git push -u origin main
-# Enable GitHub Pages → Settings → Pages → Deploy from branch: main / (root)
+
+```
+Settings → Pages → Source → Deploy from branch
+Branch → master → Folder → /root
 ```
 
+Site URL: https://aj-world.github.io/engineering-handbook/
+
 ### Netlify
-Drag and drop the `engineering-handbook/` folder onto [app.netlify.com/drop](https://app.netlify.com/drop).
+
+Connect the repository or drag the folder to https://app.netlify.com/drop
+
+Netlify will automatically deploy the site.
 
 ---
 
 ## Contributing
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b topic/linked-list`
-3. Add your content following the existing page template
-4. Open a pull request with a short description
+Contributions are welcome!
 
-All contributions welcome — corrections, new topics, better examples.
+1. Fork the repository
+2. Create a new branch:
+```bash
+git checkout -b topic/your-topic-name
+```
+3. Add or improve documentation
+4. Open a pull request
 
 ---
 
 ## License
 
-MIT — free to use, modify, and distribute.
+[MIT License](LICENSE) — free to use, modify, and distribute.
+
+---
+
+## Author
+
+**Abinash Nayak**
+Backend Engineering Learner & System Design Enthusiast
+
+---
+
+## Future Improvements
+
+- Interactive diagrams
+- System design visualizations
+- Topic progress tracking
+- Search indexing across pages
