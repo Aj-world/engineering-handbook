@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays — Engineering Handbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="topnav">
+  <a href="../index.html" class="nav-brand">
+    <div class="brand-mark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    </div>
+    <span class="brand-name">Engineering Handbook</span>
+    <div class="nav-sep"></div>
+    <span class="nav-tag">docs</span>
+  </a>
+
+  <div class="nav-search">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-3);flex-shrink:0">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input id="search-input" type="text" placeholder="Search topics..." autocomplete="off" />
+    <span class="kbd" id="search-kbd">⌘K</span>
+    <div class="search-results" id="search-results"></div>
+  </div>
+
+  <div class="nav-right">
+    <a class="nav-link" href="../index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Roadmap
+    </a>
+    <a class="nav-gh" href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">Overview</p>
+      <a class="sidebar-item" href="../index.html">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Homepage
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 01 — Fundamentals</p>
+      <a class="sidebar-item active" href="./arrays.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Arrays</a>
+      <a class="sidebar-item" href="./hashmap.html"><div class="sidebar-dot" style="background:var(--blue)"></div>HashMap</a>
+      <a class="sidebar-item" href="./linkedlist.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Linked List</a>
+      <a class="sidebar-item" href="./stack.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Stack</a>
+      <a class="sidebar-item" href="./queue.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Queue</a>
+      <a class="sidebar-item" href="./trees.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Trees</a>
+      <a class="sidebar-item" href="./graphs.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Graphs</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 02 — CS Core</p>
+      <a class="sidebar-item" href="./operating-systems.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Operating Systems</a>
+      <a class="sidebar-item" href="./networking.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Networking</a>
+      <a class="sidebar-item" href="./databases.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Databases</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 03 — Backend</p>
+      <a class="sidebar-item" href="./rest-api.html"><div class="sidebar-dot" style="background:var(--teal)"></div>REST API Design</a>
+      <a class="sidebar-item" href="./authentication.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authentication</a>
+      <a class="sidebar-item" href="./authorization.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authorization</a>
+      <a class="sidebar-item" href="./api-security.html"><div class="sidebar-dot" style="background:var(--teal)"></div>API Security</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 04 — Advanced</p>
+      <a class="sidebar-item" href="./caching.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Caching</a>
+      <a class="sidebar-item" href="./message-queues.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Message Queues</a>
+      <a class="sidebar-item" href="./event-driven.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Event Driven Systems</a>
+      <a class="sidebar-item" href="./file-storage.html"><div class="sidebar-dot" style="background:var(--amber)"></div>File Storage</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 05 — System Design</p>
+      <a class="sidebar-item" href="./scalability.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Scalability</a>
+      <a class="sidebar-item" href="./load-balancing.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Load Balancing</a>
+      <a class="sidebar-item" href="./sharding.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Sharding</a>
+      <a class="sidebar-item" href="./distributed-systems.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Distributed Systems</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 06 — Infrastructure</p>
+      <a class="sidebar-item" href="./docker.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Docker</a>
+      <a class="sidebar-item" href="./cicd.html"><div class="sidebar-dot" style="background:var(--rose)"></div>CI/CD</a>
+      <a class="sidebar-item" href="./cloud-basics.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Cloud Basics</a>
+      <a class="sidebar-item" href="./monitoring.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Monitoring</a>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main-content">
+
+    <div class="doc-header">
+      <div class="doc-breadcrumb">
+        <a href="../index.html">engineering-handbook</a>
+        <span class="sep"> / </span>
+        <a href="../index.html#phase-1">fundamentals</a>
+        <span class="sep"> / </span>
+        <span class="current">arrays</span>
+      </div>
+
+      <div class="doc-phase-tag" style="background:rgba(77,145,255,.08);border:1px solid rgba(77,145,255,.2);color:var(--blue)">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Phase 01 · Fundamentals
+      </div>
+
+      <h1 class="doc-title">Arrays</h1>
+      <p class="doc-subtitle">The most fundamental data structure in computer science — a contiguous block of memory storing elements of the same type, accessible via index in O(1) time.</p>
+
+      <div class="doc-meta">
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <strong>~15 min</strong> read
+        </div>
+        <div class="doc-meta-sep"></div>
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Beginner
+        </div>
+        <div class="doc-meta-sep"></div>
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Python · JavaScript · Java
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-body">
+
+      <!-- Overview -->
+      <div class="doc-section" id="overview">
+        <h2>Overview</h2>
+        <p>An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together, making it easy to calculate the position of each element by simply adding an offset to a base value (the memory address of the first element).</p>
+        <p>Arrays are used extensively in algorithm problems and system design. Understanding their performance characteristics is essential for writing efficient code.</p>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <p class="callout-title">Interview Insight</p>
+            <p class="callout-text">Arrays appear in roughly 40% of coding interview questions. Master two-pointer, sliding window, and prefix sum patterns before your interviews.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time Complexity -->
+      <div class="doc-section" id="complexity">
+        <h2>Time Complexity</h2>
+        <table class="complexity-table">
+          <thead>
+            <tr><th>Operation</th><th>Average</th><th>Worst</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Access</td><td class="tc-green">O(1)</td><td class="tc-green">O(1)</td><td>Direct index lookup</td></tr>
+            <tr><td>Search</td><td class="tc-amber">O(n)</td><td class="tc-amber">O(n)</td><td>Linear scan required</td></tr>
+            <tr><td>Insert (end)</td><td class="tc-green">O(1)</td><td class="tc-amber">O(n)</td><td>Amortized — resize on overflow</td></tr>
+            <tr><td>Insert (middle)</td><td class="tc-amber">O(n)</td><td class="tc-amber">O(n)</td><td>Elements must shift right</td></tr>
+            <tr><td>Delete (end)</td><td class="tc-green">O(1)</td><td class="tc-green">O(1)</td><td>Just decrement size</td></tr>
+            <tr><td>Delete (middle)</td><td class="tc-amber">O(n)</td><td class="tc-amber">O(n)</td><td>Elements must shift left</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Space complexity:</strong> <span style="color:var(--teal);font-family:var(--mono)">O(n)</span> — proportional to the number of elements stored.</p>
+      </div>
+
+      <!-- Core Patterns -->
+      <div class="doc-section" id="patterns">
+        <h2>Core Patterns</h2>
+
+        <h3>Two Pointer</h3>
+        <p>Use two pointers moving toward each other (or in the same direction) to reduce O(n²) solutions to O(n).</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="cm"># Check if array has a pair summing to target</span>
+<span class="kw">def</span> <span class="fn">two_sum_sorted</span>(arr: <span class="tp">list</span>, target: <span class="tp">int</span>) -> <span class="tp">bool</span>:
+    left, right = <span class="num">0</span>, <span class="tp">len</span>(arr) - <span class="num">1</span>
+
+    <span class="kw">while</span> left < right:
+        current = arr[left] + arr[right]
+        <span class="kw">if</span> current == target:
+            <span class="kw">return</span> <span class="tp">True</span>
+        <span class="kw">elif</span> current < target:
+            left += <span class="num">1</span>   <span class="cm"># need bigger sum</span>
+        <span class="kw">else</span>:
+            right -= <span class="num">1</span>  <span class="cm"># need smaller sum</span>
+
+    <span class="kw">return</span> <span class="tp">False</span>
+
+<span class="cm"># Time: O(n)  |  Space: O(1)</span></pre>
+        </div>
+
+        <h3>Sliding Window</h3>
+        <p>Maintain a window of elements and slide it across the array to avoid recomputing from scratch on each step.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="cm"># Maximum sum subarray of size k</span>
+<span class="kw">def</span> <span class="fn">max_subarray_sum</span>(arr: <span class="tp">list</span>, k: <span class="tp">int</span>) -> <span class="tp">int</span>:
+    window_sum = <span class="tp">sum</span>(arr[:k])
+    max_sum = window_sum
+
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="tp">range</span>(k, <span class="tp">len</span>(arr)):
+        window_sum += arr[i] - arr[i - k]  <span class="cm"># slide</span>
+        max_sum = <span class="tp">max</span>(max_sum, window_sum)
+
+    <span class="kw">return</span> max_sum
+
+<span class="cm"># Time: O(n)  |  Space: O(1)</span></pre>
+        </div>
+
+        <h3>Prefix Sum</h3>
+        <p>Precompute cumulative sums to answer range-sum queries in O(1) after O(n) preprocessing.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="cm"># Build prefix sums, then query any range in O(1)</span>
+<span class="kw">def</span> <span class="fn">build_prefix</span>(arr: <span class="tp">list</span>) -> <span class="tp">list</span>:
+    prefix = [<span class="num">0</span>] * (<span class="tp">len</span>(arr) + <span class="num">1</span>)
+    <span class="kw">for</span> i, v <span class="kw">in</span> <span class="tp">enumerate</span>(arr):
+        prefix[i + <span class="num">1</span>] = prefix[i] + v
+    <span class="kw">return</span> prefix
+
+<span class="kw">def</span> <span class="fn">range_sum</span>(prefix: <span class="tp">list</span>, l: <span class="tp">int</span>, r: <span class="tp">int</span>) -> <span class="tp">int</span>:
+    <span class="kw">return</span> prefix[r + <span class="num">1</span>] - prefix[l]  <span class="cm"># O(1)</span></pre>
+        </div>
+      </div>
+
+      <!-- Common Interview Problems -->
+      <div class="doc-section" id="problems">
+        <h2>Common Interview Problems</h2>
+        <ul>
+          <li><strong>Two Sum</strong> — find pair summing to target (use HashMap for O(n))</li>
+          <li><strong>Best Time to Buy/Sell Stock</strong> — single pass, track min price seen so far</li>
+          <li><strong>Maximum Subarray</strong> — Kadane's algorithm, O(n) dynamic programming</li>
+          <li><strong>Rotate Array</strong> — reverse trick: O(n) time, O(1) space</li>
+          <li><strong>Product of Array Except Self</strong> — left/right prefix products, no division</li>
+          <li><strong>Container With Most Water</strong> — two-pointer, greedy shrink of wider side</li>
+          <li><strong>Trapping Rain Water</strong> — two-pointer or prefix max arrays</li>
+        </ul>
+
+        <div class="callout callout-tip">
+          <span class="callout-icon">✦</span>
+          <div class="callout-body">
+            <p class="callout-title">Pattern Recognition Tip</p>
+            <p class="callout-text">When a problem asks for a contiguous subarray and mentions "maximum", "minimum", or "sum" — default to sliding window or Kadane's. When it asks for a "pair" or "triplet" — default to two-pointer on a sorted array.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Layout -->
+      <div class="doc-section" id="memory">
+        <h2>Memory Layout</h2>
+        <p>Arrays store elements in contiguous memory blocks. This enables cache-friendly access patterns — the CPU prefetcher can anticipate sequential reads, making array iteration significantly faster than linked lists in practice, even though both are theoretically O(n).</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">C — Memory layout</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="cm">/* int arr[4] — stored at base address 0x1000 */</span>
+arr[<span class="num">0</span>]  →  address 0x1000  (4 bytes)
+arr[<span class="num">1</span>]  →  address 0x1004  (4 bytes)
+arr[<span class="num">2</span>]  →  address 0x1008  (4 bytes)
+arr[<span class="num">3</span>]  →  address 0x100C  (4 bytes)
+
+<span class="cm">/* element address = base + (index × element_size) */</span>
+addr(arr[i]) = 0x1000 + i * <span class="tp">sizeof</span>(<span class="kw">int</span>)</pre>
+        </div>
+
+        <div class="callout callout-warn">
+          <span class="callout-icon">⚠</span>
+          <div class="callout-body">
+            <p class="callout-title">Watch out: Off-by-One Errors</p>
+            <p class="callout-text">Array indices are 0-based in most languages. The last valid index is <code style="font-family:var(--mono);font-size:.82em;color:var(--text-1)">n - 1</code> not <code style="font-family:var(--mono);font-size:.82em;color:var(--text-1)">n</code>. Out-of-bounds access is one of the most common bugs in array-related code.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Arrays -->
+      <div class="doc-section" id="dynamic">
+        <h2>Dynamic Arrays</h2>
+        <p>Languages like Python (list) and Java (ArrayList) implement dynamic arrays that resize automatically. When capacity is exceeded, a new array of typically 2× the size is allocated and all elements are copied — this resize operation is O(n), but it happens infrequently enough that the <strong>amortized cost of append is O(1)</strong>.</p>
+        <ul>
+          <li><strong>Python:</strong> <code style="font-family:var(--mono);font-size:.82em">list</code> — dynamic, mixed types allowed via boxing</li>
+          <li><strong>Java:</strong> <code style="font-family:var(--mono);font-size:.82em">ArrayList&lt;T&gt;</code> — typed, backed by Object array</li>
+          <li><strong>JavaScript:</strong> <code style="font-family:var(--mono);font-size:.82em">Array</code> — sparse, dynamic, can hold any type</li>
+          <li><strong>Go:</strong> <code style="font-family:var(--mono);font-size:.82em">slice</code> — header (ptr, len, cap) over backing array</li>
+        </ul>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="doc-nav">
+        <div></div>
+        <a class="doc-nav-btn next" href="./hashmap.html">
+          <div>
+            <p class="doc-nav-label">Next</p>
+            <p class="doc-nav-title">HashMap →</p>
+          </div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+    </div><!-- /doc-body -->
+
+  </main>
+
+  <!-- RIGHT RAIL -->
+  <aside class="toc-rail">
+    <p class="toc-label">On this page</p>
+    <a class="toc-item" href="#overview"><div class="toc-phase-dot" style="background:var(--blue)"></div>Overview</a>
+    <a class="toc-item" href="#complexity"><div class="toc-phase-dot" style="background:var(--blue)"></div>Time Complexity</a>
+    <a class="toc-item" href="#patterns"><div class="toc-phase-dot" style="background:var(--blue)"></div>Core Patterns</a>
+    <a class="toc-item" href="#problems"><div class="toc-phase-dot" style="background:var(--blue)"></div>Interview Problems</a>
+    <a class="toc-item" href="#memory"><div class="toc-phase-dot" style="background:var(--blue)"></div>Memory Layout</a>
+    <a class="toc-item" href="#dynamic"><div class="toc-phase-dot" style="background:var(--blue)"></div>Dynamic Arrays</a>
+    <div class="toc-divider"></div>
+    <a class="toc-item" href="https://github.com" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-3)"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      Contribute
+    </a>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="footer-l">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Engineering Handbook &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; MIT License
+  </div>
+  <div class="footer-r">
+    <a href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</footer>
+
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

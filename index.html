@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering Handbook — Backend & Systems Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="topnav">
+  <a href="./index.html" class="nav-brand">
+    <div class="brand-mark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    </div>
+    <span class="brand-name">Engineering Handbook</span>
+    <div class="nav-sep"></div>
+    <span class="nav-tag">docs</span>
+  </a>
+
+  <div class="nav-search">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-3);flex-shrink:0">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input id="search-input" type="text" placeholder="Search topics..." autocomplete="off" />
+    <span class="kbd" id="search-kbd">⌘K</span>
+    <div class="search-results" id="search-results"></div>
+  </div>
+
+  <div class="nav-right">
+    <a class="nav-link" href="./index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Roadmap
+    </a>
+    <a class="nav-gh" href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">Overview</p>
+      <a class="sidebar-item active" href="./index.html">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Homepage
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 01 — Fundamentals</p>
+      <a class="sidebar-item" href="./pages/arrays.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Arrays</a>
+      <a class="sidebar-item" href="./pages/hashmap.html"><div class="sidebar-dot" style="background:var(--blue)"></div>HashMap</a>
+      <a class="sidebar-item" href="./pages/linkedlist.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Linked List</a>
+      <a class="sidebar-item" href="./pages/stack.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Stack</a>
+      <a class="sidebar-item" href="./pages/queue.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Queue</a>
+      <a class="sidebar-item" href="./pages/trees.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Trees</a>
+      <a class="sidebar-item" href="./pages/graphs.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Graphs</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 02 — CS Core</p>
+      <a class="sidebar-item" href="./pages/operating-systems.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Operating Systems</a>
+      <a class="sidebar-item" href="./pages/networking.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Networking</a>
+      <a class="sidebar-item" href="./pages/databases.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Databases</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 03 — Backend</p>
+      <a class="sidebar-item" href="./pages/rest-api.html"><div class="sidebar-dot" style="background:var(--teal)"></div>REST API Design</a>
+      <a class="sidebar-item" href="./pages/authentication.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authentication</a>
+      <a class="sidebar-item" href="./pages/authorization.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authorization</a>
+      <a class="sidebar-item" href="./pages/api-security.html"><div class="sidebar-dot" style="background:var(--teal)"></div>API Security</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 04 — Advanced</p>
+      <a class="sidebar-item" href="./pages/caching.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Caching</a>
+      <a class="sidebar-item" href="./pages/message-queues.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Message Queues</a>
+      <a class="sidebar-item" href="./pages/event-driven.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Event Driven Systems</a>
+      <a class="sidebar-item" href="./pages/file-storage.html"><div class="sidebar-dot" style="background:var(--amber)"></div>File Storage</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 05 — System Design</p>
+      <a class="sidebar-item" href="./pages/scalability.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Scalability</a>
+      <a class="sidebar-item" href="./pages/load-balancing.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Load Balancing</a>
+      <a class="sidebar-item" href="./pages/sharding.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Sharding</a>
+      <a class="sidebar-item" href="./pages/distributed-systems.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Distributed Systems</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 06 — Infrastructure</p>
+      <a class="sidebar-item" href="./pages/docker.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Docker</a>
+      <a class="sidebar-item" href="./pages/cicd.html"><div class="sidebar-dot" style="background:var(--rose)"></div>CI/CD</a>
+      <a class="sidebar-item" href="./pages/cloud-basics.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Cloud Basics</a>
+      <a class="sidebar-item" href="./pages/monitoring.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Monitoring</a>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main-content">
+
+    <section class="hero">
+      <div class="hero-breadcrumb">
+        <span>engineering-handbook</span><span class="sep"> / </span>
+        <span>docs</span><span class="sep"> / </span>
+        <span class="current">index</span>
+      </div>
+      <div class="hero-badge"><span class="live-dot"></span>Open Source · MIT License</div>
+      <h1>Backend &amp; Systems<br/><em>Engineering Handbook</em></h1>
+      <p class="hero-desc">A structured, open-source knowledge base for mastering backend engineering — from fundamental data structures through distributed systems design. Built for interview prep and deep structured learning.</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <strong>6</strong> phases
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <strong>30+</strong> topics
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Free forever</div>
+      </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="phase p1" id="phase-1">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="phase-meta-info">
+          <p class="phase-label">Phase 01</p>
+          <h2 class="phase-title">Programming Fundamentals</h2>
+          <p class="phase-desc">Core data structures and algorithmic thinking — the foundation everything else is built on.</p>
+        </div>
+        <div class="phase-count">7 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/arrays.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></div>
+          <div class="card-body"><p class="card-name">Arrays</p><p class="card-slug">pages/arrays.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/hashmap.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div>
+          <div class="card-body"><p class="card-name">HashMap</p><p class="card-slug">pages/hashmap.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/linkedlist.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><line x1="7" y1="12" x2="17" y2="12"/><polyline points="14 9 17 12 14 15"/></svg></div>
+          <div class="card-body"><p class="card-name">Linked List</p><p class="card-slug">pages/linkedlist.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/stack.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <div class="card-body"><p class="card-name">Stack</p><p class="card-slug">pages/stack.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/queue.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          <div class="card-body"><p class="card-name">Queue</p><p class="card-slug">pages/queue.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/trees.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><circle cx="6" cy="14" r="2"/><circle cx="18" cy="14" r="2"/><line x1="12" y1="6" x2="6" y2="12"/><line x1="12" y1="6" x2="18" y2="12"/></svg></div>
+          <div class="card-body"><p class="card-name">Trees</p><p class="card-slug">pages/trees.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/graphs.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><line x1="7" y1="6" x2="17" y2="6"/><line x1="5.5" y1="7.5" x2="11" y2="16.5"/><line x1="18.5" y1="7.5" x2="13" y2="16.5"/></svg></div>
+          <div class="card-body"><p class="card-name">Graphs</p><p class="card-slug">pages/graphs.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="phase p2" id="phase-2">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="phase-meta-info">
+          <p class="phase-label">Phase 02</p>
+          <h2 class="phase-title">Core Computer Science</h2>
+          <p class="phase-desc">OS internals, network protocols, and database theory that underpin all production software.</p>
+        </div>
+        <div class="phase-count">3 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/operating-systems.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></div>
+          <div class="card-body"><p class="card-name">Operating Systems</p><p class="card-slug">pages/operating-systems.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/networking.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><rect x="2" y="18" width="6" height="4" rx="1"/><rect x="16" y="18" width="6" height="4" rx="1"/><line x1="12" y1="6" x2="12" y2="12"/><line x1="5" y1="18" x2="12" y2="12"/><line x1="19" y1="18" x2="12" y2="12"/></svg></div>
+          <div class="card-body"><p class="card-name">Networking</p><p class="card-slug">pages/networking.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a class="topic-card" href="./pages/databases.html">
+          <div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="card-body"><p class="card-name">Databases</p><p class="card-slug">pages/databases.html</p></div>
+          <svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="phase p3" id="phase-3">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="phase-meta-info">
+          <p class="phase-label">Phase 03</p>
+          <h2 class="phase-title">Backend Engineering</h2>
+          <p class="phase-desc">API design patterns, authentication flows, and security practices for production systems.</p>
+        </div>
+        <div class="phase-count">4 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/rest-api.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="card-body"><p class="card-name">REST API Design</p><p class="card-slug">pages/rest-api.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/authentication.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="card-body"><p class="card-name">Authentication</p><p class="card-slug">pages/authentication.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/authorization.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="card-body"><p class="card-name">Authorization</p><p class="card-slug">pages/authorization.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/api-security.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="card-body"><p class="card-name">API Security</p><p class="card-slug">pages/api-security.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- Phase 4 -->
+    <section class="phase p4" id="phase-4">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="phase-meta-info"><p class="phase-label">Phase 04</p><h2 class="phase-title">Advanced Backend</h2><p class="phase-desc">Performance engineering: caching, async messaging, events, and storage systems.</p></div>
+        <div class="phase-count">4 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/caching.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="card-body"><p class="card-name">Caching</p><p class="card-slug">pages/caching.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/message-queues.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div><div class="card-body"><p class="card-name">Message Queues</p><p class="card-slug">pages/message-queues.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/event-driven.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="card-body"><p class="card-name">Event Driven Systems</p><p class="card-slug">pages/event-driven.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/file-storage.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><div class="card-body"><p class="card-name">File Storage</p><p class="card-slug">pages/file-storage.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- Phase 5 -->
+    <section class="phase p5" id="phase-5">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="phase-meta-info"><p class="phase-label">Phase 05</p><h2 class="phase-title">System Design</h2><p class="phase-desc">Large-scale architecture: scalability patterns, load distribution, and distributed systems theory.</p></div>
+        <div class="phase-count">4 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/scalability.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="card-body"><p class="card-name">Scalability</p><p class="card-slug">pages/scalability.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/load-balancing.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="card-body"><p class="card-name">Load Balancing</p><p class="card-slug">pages/load-balancing.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/sharding.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div><div class="card-body"><p class="card-name">Sharding</p><p class="card-slug">pages/sharding.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/distributed-systems.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/></svg></div><div class="card-body"><p class="card-name">Distributed Systems</p><p class="card-slug">pages/distributed-systems.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- Phase 6 -->
+    <section class="phase p6" id="phase-6">
+      <div class="phase-header">
+        <div class="phase-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <div class="phase-meta-info"><p class="phase-label">Phase 06</p><h2 class="phase-title">Infrastructure</h2><p class="phase-desc">Containers, deployment pipelines, cloud platforms, and production observability.</p></div>
+        <div class="phase-count">4 topics</div>
+      </div>
+      <div class="topic-grid">
+        <a class="topic-card" href="./pages/docker.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div><div class="card-body"><p class="card-name">Docker</p><p class="card-slug">pages/docker.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/cicd.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><div class="card-body"><p class="card-name">CI/CD</p><p class="card-slug">pages/cicd.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/cloud-basics.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><div class="card-body"><p class="card-name">Cloud Basics</p><p class="card-slug">pages/cloud-basics.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        <a class="topic-card" href="./pages/monitoring.html"><div class="card-icon-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="card-body"><p class="card-name">Monitoring</p><p class="card-slug">pages/monitoring.html</p></div><svg class="card-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RIGHT RAIL -->
+  <aside class="toc-rail">
+    <p class="toc-label">On this page</p>
+    <a class="toc-item" href="#phase-1"><div class="toc-phase-dot" style="background:var(--blue)"></div>Fundamentals</a>
+    <a class="toc-item" href="#phase-2"><div class="toc-phase-dot" style="background:var(--purple)"></div>CS Core</a>
+    <a class="toc-item" href="#phase-3"><div class="toc-phase-dot" style="background:var(--teal)"></div>Backend Eng.</a>
+    <a class="toc-item" href="#phase-4"><div class="toc-phase-dot" style="background:var(--amber)"></div>Adv. Backend</a>
+    <a class="toc-item" href="#phase-5"><div class="toc-phase-dot" style="background:var(--sky)"></div>System Design</a>
+    <a class="toc-item" href="#phase-6"><div class="toc-phase-dot" style="background:var(--rose)"></div>Infrastructure</a>
+    <div class="toc-divider"></div>
+    <a class="toc-item" href="https://github.com" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-3)"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      Contribute
+    </a>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="footer-l">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Engineering Handbook &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; MIT License
+  </div>
+  <div class="footer-r">
+    <a href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</footer>
+
+<script src="./assets/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashMap — Engineering Handbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="topnav">
+  <a href="../index.html" class="nav-brand">
+    <div class="brand-mark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    </div>
+    <span class="brand-name">Engineering Handbook</span>
+    <div class="nav-sep"></div>
+    <span class="nav-tag">docs</span>
+  </a>
+
+  <div class="nav-search">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-3);flex-shrink:0">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input id="search-input" type="text" placeholder="Search topics..." autocomplete="off" />
+    <span class="kbd" id="search-kbd">⌘K</span>
+    <div class="search-results" id="search-results"></div>
+  </div>
+
+  <div class="nav-right">
+    <a class="nav-link" href="../index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Roadmap
+    </a>
+    <a class="nav-gh" href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">Overview</p>
+      <a class="sidebar-item" href="../index.html">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Homepage
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 01 — Fundamentals</p>
+      <a class="sidebar-item" href="./arrays.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Arrays</a>
+      <a class="sidebar-item active" href="./hashmap.html"><div class="sidebar-dot" style="background:var(--blue)"></div>HashMap</a>
+      <a class="sidebar-item" href="./linkedlist.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Linked List</a>
+      <a class="sidebar-item" href="./stack.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Stack</a>
+      <a class="sidebar-item" href="./queue.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Queue</a>
+      <a class="sidebar-item" href="./trees.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Trees</a>
+      <a class="sidebar-item" href="./graphs.html"><div class="sidebar-dot" style="background:var(--blue)"></div>Graphs</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 02 — CS Core</p>
+      <a class="sidebar-item" href="./operating-systems.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Operating Systems</a>
+      <a class="sidebar-item" href="./networking.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Networking</a>
+      <a class="sidebar-item" href="./databases.html"><div class="sidebar-dot" style="background:var(--purple)"></div>Databases</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 03 — Backend</p>
+      <a class="sidebar-item" href="./rest-api.html"><div class="sidebar-dot" style="background:var(--teal)"></div>REST API Design</a>
+      <a class="sidebar-item" href="./authentication.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authentication</a>
+      <a class="sidebar-item" href="./authorization.html"><div class="sidebar-dot" style="background:var(--teal)"></div>Authorization</a>
+      <a class="sidebar-item" href="./api-security.html"><div class="sidebar-dot" style="background:var(--teal)"></div>API Security</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 04 — Advanced</p>
+      <a class="sidebar-item" href="./caching.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Caching</a>
+      <a class="sidebar-item" href="./message-queues.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Message Queues</a>
+      <a class="sidebar-item" href="./event-driven.html"><div class="sidebar-dot" style="background:var(--amber)"></div>Event Driven Systems</a>
+      <a class="sidebar-item" href="./file-storage.html"><div class="sidebar-dot" style="background:var(--amber)"></div>File Storage</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 05 — System Design</p>
+      <a class="sidebar-item" href="./scalability.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Scalability</a>
+      <a class="sidebar-item" href="./load-balancing.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Load Balancing</a>
+      <a class="sidebar-item" href="./sharding.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Sharding</a>
+      <a class="sidebar-item" href="./distributed-systems.html"><div class="sidebar-dot" style="background:var(--sky)"></div>Distributed Systems</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Phase 06 — Infrastructure</p>
+      <a class="sidebar-item" href="./docker.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Docker</a>
+      <a class="sidebar-item" href="./cicd.html"><div class="sidebar-dot" style="background:var(--rose)"></div>CI/CD</a>
+      <a class="sidebar-item" href="./cloud-basics.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Cloud Basics</a>
+      <a class="sidebar-item" href="./monitoring.html"><div class="sidebar-dot" style="background:var(--rose)"></div>Monitoring</a>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main-content">
+
+    <div class="doc-header">
+      <div class="doc-breadcrumb">
+        <a href="../index.html">engineering-handbook</a>
+        <span class="sep"> / </span>
+        <a href="../index.html#phase-1">fundamentals</a>
+        <span class="sep"> / </span>
+        <span class="current">hashmap</span>
+      </div>
+
+      <div class="doc-phase-tag" style="background:rgba(77,145,255,.08);border:1px solid rgba(77,145,255,.2);color:var(--blue)">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Phase 01 · Fundamentals
+      </div>
+
+      <h1 class="doc-title">HashMap</h1>
+      <p class="doc-subtitle">A hash table maps keys to values using a hash function, providing average O(1) insertion, deletion, and lookup. It's the go-to tool for reducing O(n²) brute force solutions to O(n).</p>
+
+      <div class="doc-meta">
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <strong>~20 min</strong> read
+        </div>
+        <div class="doc-meta-sep"></div>
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Beginner–Intermediate
+        </div>
+        <div class="doc-meta-sep"></div>
+        <div class="doc-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Python · JavaScript · Java
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-body">
+
+      <!-- Overview -->
+      <div class="doc-section" id="overview">
+        <h2>Overview</h2>
+        <p>A HashMap (also called Hash Table, Dictionary, or Object depending on the language) stores key-value pairs. A <strong>hash function</strong> converts the key into an array index, allowing for near-instant retrieval. This is the structure behind Python's <code style="font-family:var(--mono);font-size:.82em">dict</code>, JavaScript's <code style="font-family:var(--mono);font-size:.82em">Map</code>, and Java's <code style="font-family:var(--mono);font-size:.82em">HashMap</code>.</p>
+        <p>The fundamental trade-off: you trade memory (the backing array) for time — lookups that would require scanning an entire list now resolve in constant time.</p>
+
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div class="callout-body">
+            <p class="callout-title">Interview Insight</p>
+            <p class="callout-text">The single most impactful pattern you can learn: whenever you see an O(n²) brute force with two nested loops, ask "can I use a HashMap to remember what I've seen?" This collapses it to O(n) in most cases.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- How Hashing Works -->
+      <div class="doc-section" id="hashing">
+        <h2>How Hashing Works</h2>
+        <p>When you insert a key, the HashMap:</p>
+        <ol>
+          <li>Runs the key through a <strong>hash function</strong> → produces an integer</li>
+          <li>Takes that integer <code style="font-family:var(--mono);font-size:.82em">mod capacity</code> → produces a bucket index</li>
+          <li>Stores the value in that bucket</li>
+        </ol>
+        <p>On lookup, the exact same steps happen — hash the key, find the bucket, return the value. No scanning required.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python — simplified internals</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="kw">class</span> <span class="tp">SimpleHashMap</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, capacity=<span class="num">16</span>):
+        self.capacity = capacity
+        self.buckets = [[] <span class="kw">for</span> _ <span class="kw">in</span> <span class="tp">range</span>(capacity)]
+
+    <span class="kw">def</span> <span class="fn">_hash</span>(self, key) -> <span class="tp">int</span>:
+        <span class="kw">return</span> <span class="tp">hash</span>(key) % self.capacity  <span class="cm"># bucket index</span>
+
+    <span class="kw">def</span> <span class="fn">put</span>(self, key, value):
+        idx = self._hash(key)
+        bucket = self.buckets[idx]
+        <span class="kw">for</span> i, (k, v) <span class="kw">in</span> <span class="tp">enumerate</span>(bucket):
+            <span class="kw">if</span> k == key:
+                bucket[i] = (key, value)  <span class="cm"># update</span>
+                <span class="kw">return</span>
+        bucket.append((key, value))         <span class="cm"># insert</span>
+
+    <span class="kw">def</span> <span class="fn">get</span>(self, key):
+        idx = self._hash(key)
+        <span class="kw">for</span> k, v <span class="kw">in</span> self.buckets[idx]:
+            <span class="kw">if</span> k == key:
+                <span class="kw">return</span> v
+        <span class="kw">return</span> <span class="tp">None</span></pre>
+        </div>
+      </div>
+
+      <!-- Collision Handling -->
+      <div class="doc-section" id="collisions">
+        <h2>Collision Handling</h2>
+        <p>Two keys can hash to the same bucket — this is a <strong>collision</strong>. There are two primary strategies:</p>
+
+        <h3>Chaining (most common)</h3>
+        <p>Each bucket holds a linked list (or array) of all entries that hash there. Python's <code style="font-family:var(--mono);font-size:.82em">dict</code> uses a variation of this. Worst-case degrades to O(n) if all keys collide into one bucket.</p>
+
+        <h3>Open Addressing</h3>
+        <p>When a collision occurs, probe for the next empty slot using a deterministic sequence (linear, quadratic, or double hashing). Java's <code style="font-family:var(--mono);font-size:.82em">HashMap</code> uses chaining by default but switches to tree nodes (red-black tree) when a bucket exceeds 8 entries — O(log n) worst case instead of O(n).</p>
+
+        <div class="callout callout-warn">
+          <span class="callout-icon">⚠</span>
+          <div class="callout-body">
+            <p class="callout-title">Load Factor Matters</p>
+            <p class="callout-text">When the number of entries exceeds ~70–75% of capacity (load factor), the map rehashes into a larger array. This is O(n) but amortized O(1) per insertion. Java's default load factor is 0.75; Python's is ⅔.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time Complexity -->
+      <div class="doc-section" id="complexity">
+        <h2>Time Complexity</h2>
+        <table class="complexity-table">
+          <thead>
+            <tr><th>Operation</th><th>Average</th><th>Worst</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Insert</td><td class="tc-green">O(1)</td><td class="tc-amber">O(n)</td><td>Worst: all keys collide</td></tr>
+            <tr><td>Lookup</td><td class="tc-green">O(1)</td><td class="tc-amber">O(n)</td><td>Worst: full bucket scan</td></tr>
+            <tr><td>Delete</td><td class="tc-green">O(1)</td><td class="tc-amber">O(n)</td><td>Same as lookup</td></tr>
+            <tr><td>Iteration</td><td class="tc-amber">O(n)</td><td class="tc-amber">O(n)</td><td>Must visit all buckets</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Space complexity:</strong> <span style="color:var(--teal);font-family:var(--mono)">O(n)</span> — proportional to number of entries, plus overhead of the backing array.</p>
+      </div>
+
+      <!-- Core Patterns -->
+      <div class="doc-section" id="patterns">
+        <h2>Core Patterns</h2>
+
+        <h3>Frequency Count</h3>
+        <p>Count occurrences of elements — the foundation of anagram detection, majority element, and histogram problems.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="kw">from</span> collections <span class="kw">import</span> Counter
+
+<span class="kw">def</span> <span class="fn">is_anagram</span>(s: <span class="tp">str</span>, t: <span class="tp">str</span>) -> <span class="tp">bool</span>:
+    <span class="kw">return</span> Counter(s) == Counter(t)
+
+<span class="cm"># Manual version:</span>
+<span class="kw">def</span> <span class="fn">is_anagram_manual</span>(s: <span class="tp">str</span>, t: <span class="tp">str</span>) -> <span class="tp">bool</span>:
+    <span class="kw">if</span> <span class="tp">len</span>(s) != <span class="tp">len</span>(t):
+        <span class="kw">return</span> <span class="tp">False</span>
+    count = {}
+    <span class="kw">for</span> c <span class="kw">in</span> s:
+        count[c] = count.get(c, <span class="num">0</span>) + <span class="num">1</span>
+    <span class="kw">for</span> c <span class="kw">in</span> t:
+        count[c] = count.get(c, <span class="num">0</span>) - <span class="num">1</span>
+        <span class="kw">if</span> count[c] < <span class="num">0</span>:
+            <span class="kw">return</span> <span class="tp">False</span>
+    <span class="kw">return</span> <span class="tp">True</span></pre>
+        </div>
+
+        <h3>Two-Pass Lookup (Classic Two Sum)</h3>
+        <p>Store what you've seen in one pass, then look up complements. Reduces O(n²) brute force to O(n).</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="kw">def</span> <span class="fn">two_sum</span>(nums: <span class="tp">list</span>, target: <span class="tp">int</span>) -> <span class="tp">list</span>:
+    seen = {}  <span class="cm"># value → index</span>
+    <span class="kw">for</span> i, n <span class="kw">in</span> <span class="tp">enumerate</span>(nums):
+        complement = target - n
+        <span class="kw">if</span> complement <span class="kw">in</span> seen:
+            <span class="kw">return</span> [seen[complement], i]
+        seen[n] = i
+    <span class="kw">return</span> []
+
+<span class="cm"># Time: O(n)  |  Space: O(n)</span></pre>
+        </div>
+
+        <h3>Grouping by Key</h3>
+        <p>Group items that share a property — anagram groups, items by category, nodes by level.</p>
+
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-lang">Python</span>
+            <button class="code-copy">copy</button>
+          </div>
+          <pre><span class="kw">from</span> collections <span class="kw">import</span> defaultdict
+
+<span class="kw">def</span> <span class="fn">group_anagrams</span>(words: <span class="tp">list</span>) -> <span class="tp">list</span>:
+    groups = defaultdict(<span class="tp">list</span>)
+    <span class="kw">for</span> word <span class="kw">in</span> words:
+        key = <span class="tp">tuple</span>(<span class="tp">sorted</span>(word))  <span class="cm"># canonical form</span>
+        groups[key].append(word)
+    <span class="kw">return</span> <span class="tp">list</span>(groups.values())
+
+<span class="cm"># Input:  ["eat","tea","tan","ate","nat","bat"]</span>
+<span class="cm"># Output: [["eat","tea","ate"], ["tan","nat"], ["bat"]]</span></pre>
+        </div>
+      </div>
+
+      <!-- Common Interview Problems -->
+      <div class="doc-section" id="problems">
+        <h2>Common Interview Problems</h2>
+        <ul>
+          <li><strong>Two Sum</strong> — store complement lookup, O(n)</li>
+          <li><strong>Valid Anagram</strong> — character frequency count</li>
+          <li><strong>Group Anagrams</strong> — sort chars as key, group words</li>
+          <li><strong>Longest Consecutive Sequence</strong> — store all in set, expand from sequence start</li>
+          <li><strong>Subarray Sum Equals K</strong> — prefix sums stored in map</li>
+          <li><strong>Top K Frequent Elements</strong> — count then bucket sort or heap</li>
+          <li><strong>LRU Cache</strong> — HashMap + doubly linked list</li>
+        </ul>
+
+        <div class="callout callout-tip">
+          <span class="callout-icon">✦</span>
+          <div class="callout-body">
+            <p class="callout-title">Language Specifics</p>
+            <p class="callout-text">Python: use <code style="font-family:var(--mono);font-size:.82em">dict</code> or <code style="font-family:var(--mono);font-size:.82em">collections.defaultdict</code>. JavaScript: prefer <code style="font-family:var(--mono);font-size:.82em">Map</code> over plain objects (preserves insertion order, any key type). Java: use <code style="font-family:var(--mono);font-size:.82em">HashMap&lt;K,V&gt;</code>; use <code style="font-family:var(--mono);font-size:.82em">LinkedHashMap</code> if order matters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prev / Next nav -->
+      <div class="doc-nav">
+        <a class="doc-nav-btn" href="./arrays.html">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          <div>
+            <p class="doc-nav-label">Previous</p>
+            <p class="doc-nav-title">← Arrays</p>
+          </div>
+        </a>
+        <a class="doc-nav-btn next" href="./linkedlist.html">
+          <div>
+            <p class="doc-nav-label">Next</p>
+            <p class="doc-nav-title">Linked List →</p>
+          </div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+    </div><!-- /doc-body -->
+
+  </main>
+
+  <!-- RIGHT RAIL -->
+  <aside class="toc-rail">
+    <p class="toc-label">On this page</p>
+    <a class="toc-item" href="#overview"><div class="toc-phase-dot" style="background:var(--blue)"></div>Overview</a>
+    <a class="toc-item" href="#hashing"><div class="toc-phase-dot" style="background:var(--blue)"></div>How Hashing Works</a>
+    <a class="toc-item" href="#collisions"><div class="toc-phase-dot" style="background:var(--blue)"></div>Collisions</a>
+    <a class="toc-item" href="#complexity"><div class="toc-phase-dot" style="background:var(--blue)"></div>Time Complexity</a>
+    <a class="toc-item" href="#patterns"><div class="toc-phase-dot" style="background:var(--blue)"></div>Core Patterns</a>
+    <a class="toc-item" href="#problems"><div class="toc-phase-dot" style="background:var(--blue)"></div>Interview Problems</a>
+    <div class="toc-divider"></div>
+    <a class="toc-item" href="https://github.com" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-3)"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      Contribute
+    </a>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="footer-l">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    Engineering Handbook &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; MIT License
+  </div>
+  <div class="footer-r">
+    <a href="https://github.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub
+    </a>
+  </div>
+</footer>
+
+<script src="../assets/js/search.js"></script>
+</body>
+</html>
